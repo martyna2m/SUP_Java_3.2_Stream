@@ -19,8 +19,6 @@ public class Main {
 
         Map<String, String> propertiesCopy = new HashMap<>(properties);
 
-
-
         propertiesCopy.entrySet().stream()
                 .filter(p -> Arrays.asList(sensitiveKeys).contains(p.getKey()))
                 .forEach(p -> p.setValue("******"));
