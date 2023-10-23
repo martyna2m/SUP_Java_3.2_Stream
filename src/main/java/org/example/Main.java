@@ -17,15 +17,12 @@ public class Main {
         String[] sensitiveKeys = {"login", "password", "url"};
 
 
-
-    properties.entrySet().stream()
+        properties.entrySet().stream()
                 .filter(p -> Arrays.asList(sensitiveKeys).contains(p.getKey()))
-                .forEach(p -> p.setValue("*******"));
+                .forEach(p -> p.setValue("******"));
 
 
         System.out.println(properties.values());
 
     }
-
 }
-
