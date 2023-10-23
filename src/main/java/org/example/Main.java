@@ -1,10 +1,7 @@
 package org.example;
 
-import java.sql.SQLOutput;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
@@ -17,24 +14,33 @@ public class Main {
         properties.put("errorMessage", "file has not been found");
 
 
+//
+//        List<String> notSensitiveList = properties.entrySet()
+//                .stream()
+//                .filter(p -> (!p.getKey().equals("login")) && (!p.getKey().equals("password")) && (!p.getKey().equals("url")))
+//                .map(p-> p.getKey() + " = " + p.getValue()).toList();
+//
+//
+//
+//        List<String> sensitiveList = properties.keySet()
+//                .stream()
+//                .filter(p -> (p.equals("login")) || (p.equals("password")) || (p.equals("url")))
+//                .map(p -> p + " = ******").toList();
+//
+//
+//        List <String> finalList = Stream.concat(notSensitiveList.stream(),sensitiveList.stream()).toList();
+//        System.out.println(finalList);
+//
 
-        List<String> properties1 = properties.entrySet()
-                .stream()
-                .filter(p -> (!p.getKey().equals("login")) && (!p.getKey().equals("password")) && (!p.getKey().equals("url")))
-                .map(p-> p.getKey() + " = " + p.getValue()).toList();
+        //      System.out.println(finalList);
 
 
-
-        List<String> properties2 = properties.entrySet()
-                .stream()
+        properties.entrySet().stream()
                 .filter(p -> (p.getKey().equals("login")) || (p.getKey().equals("password")) || (p.getKey().equals("url")))
-                .map(p-> p.getKey() + " = ******").toList();
+                .forEach(p -> p.setValue("*******"));
 
 
-
-        List <String> finalList = Stream.concat(properties1.stream(),properties2.stream()).toList();
-        System.out.println(finalList);
-
+        System.out.println(properties);
 
 
     }
