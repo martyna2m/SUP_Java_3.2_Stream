@@ -1,9 +1,9 @@
 package org.example;
 
 public class SensitiveData {
-    private String[] sensitiveData = {"login", "password", "url"};
+    private static String[] sensitiveData = {"login", "password", "url"};
 
-    public String[] getSensitiveData() {
+    public static String[] getSensitiveData() {
         return sensitiveData;
     }
 }
